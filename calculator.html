@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cal{
+            height: 500px;
+            width: 400px;
+            border:solid;
+            align-items: center;
+            background-color: darkslategray;
+            margin-top: 90px;
+            margin-left: 500px;
+            box-shadow: -8px -8px 15px 4px;
+
+        }
+        h3{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: aliceblue;
+        }
+        .row1{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            margin-top: 70px;
+            
+        }
+        .row2{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            margin-top: 10px;
+        }
+        .d{
+        font-size: 25px;
+        align-items: center;
+        border: solid;
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        background-color: gray;
+        color: aliceblue;
+        }
+        .d:hover{
+            border-radius: 10px;
+            background-color: black;
+        }
+        .s{
+            font-size: 25px;
+            align-items: center;
+            border: solid;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: brown;
+            color: aliceblue;
+        }
+        .s:hover{
+            border-radius: 10px;
+            background-color: black;
+        }
+        input{
+            height: 55px;
+            width: 85%;
+           /* margin-top: 50px; */
+           margin-left: 20px;
+           background-color: black;
+           color: aliceblue;
+           font-size: 25px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="cal">
+        <h3>CALCULATOR</h3>
+        <input type="text" id="res">
+        <div class="row1">
+        <button class="s" onclick="Clear()">C</button>
+        <button class="s" onclick="back()">&larr;</button>
+        <button  class="s" onclick="solve('%')">%</button>
+        <button class="s" onclick="solve('/')">&#xf7;</button>
+        </div>
+        <div class="row2">
+            <button class="d" onclick="res.value+=1">1</button>
+            <button class="d" onclick="res.value+=2">2</button>
+            <button class="d" onclick="res.value+=3">3</button>
+            <button class="s" onclick="solve('-')">-</button>
+        </div>
+        <div class="row2">
+            <button class="d" onclick="res.value+=4">4</button>
+            <button class="d" onclick="res.value+=5">5</button>
+            <button class="d" onclick="res.value+=6">6</button>
+            <button class="s" onclick="solve('*')">*</button>
+        </div>
+        <div class="row2">
+            <button class="d" onclick="res.value+=7">7</button>
+            <button class="d" onclick="res.value+=8">8</button>
+            <button class="d" onclick="res.value+=9">9</button>
+            <button class="s" onclick="solve('+')">+</button>
+        </div>
+        <div class="row2">
+         <button class="d" onclick="res.value+=00">00</button>
+         <button class="d" onclick="res.value+=0">0</button>
+         <button class="d" onclick="res.value+='.'">.</button>
+         <button class="s" onclick="result()">=</button>  
+        </div>
+    </div>
+    <script>
+        function solve(val){
+           let v=document.getElementById('res').value+=val
+        }function result(){
+           let exp1=document.getElementById("res").value
+           let num= eval(exp1)
+           document.getElementById('res').value=num
+        }
+        function back(){
+           let ev=document.getElementById('res').value
+           ev1=ev.slice(0,-1)
+           document.getElementById('res').value=ev1
+        }
+        function Clear(){
+           document.getElementById('res').value=''
+        }
+        
+    </script>
+     
+</body>
+</html>
